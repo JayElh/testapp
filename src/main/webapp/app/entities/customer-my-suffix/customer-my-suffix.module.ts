@@ -2,7 +2,6 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 import { TestAppSharedModule } from 'app/shared';
-import { TestAppAdminModule } from 'app/admin/admin.module';
 import {
     CustomerMySuffixComponent,
     CustomerMySuffixDetailComponent,
@@ -16,7 +15,7 @@ import {
 const ENTITY_STATES = [...customerRoute, ...customerPopupRoute];
 
 @NgModule({
-    imports: [TestAppSharedModule, TestAppAdminModule, RouterModule.forChild(ENTITY_STATES)],
+    imports: [TestAppSharedModule, RouterModule.forChild(ENTITY_STATES)],
     declarations: [
         CustomerMySuffixComponent,
         CustomerMySuffixDetailComponent,

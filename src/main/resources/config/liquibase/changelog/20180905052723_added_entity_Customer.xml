@@ -31,10 +31,8 @@
             </column>
             <column name="parent_id" type="bigint">
                 <constraints unique="true" nullable="true" uniqueConstraintName="ux_customer_parent_id" />
-            </column>            <column name="bank_id" type="bigint">
-                <constraints unique="true" nullable="true" uniqueConstraintName="ux_customer_bank_id" />
             </column>
-            <column name="user_id" type="bigint">
+            <column name="coreuser_id" type="bigint">
                 <constraints nullable="true" />
             </column>
 

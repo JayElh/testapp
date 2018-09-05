@@ -13,15 +13,13 @@
                 <dd>
                     <span>{{bank.name}}</span>
                 </dd>
+                <dt><span>Test</span></dt>
+                <dd>
+                    <span>{{bank.test}}</span>
+                </dd>
                 <dt><span>Status</span></dt>
                 <dd>
                     <span>{{bank.status}}</span>
-                </dd>
-                <dt><span>Customer</span></dt>
-                <dd>
-                    <div *ngIf="bank.customerId">
-                        <a [routerLink]="['/customer-bank-my-suffix', bank.customerId, 'view']">{{bank.customerId}}</a>
-                    </div>
                 </dd>
             </dl>
 

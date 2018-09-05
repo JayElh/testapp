@@ -20,17 +20,9 @@
             "otherEntityRelationshipName": "customer"
         },
         {
-            "relationshipType": "one-to-one",
-            "relationshipName": "bank",
-            "otherEntityName": "customerBank",
-            "otherEntityField": "id",
-            "ownerSide": true,
-            "otherEntityRelationshipName": "customer"
-        },
-        {
             "relationshipType": "many-to-one",
-            "relationshipName": "user",
-            "otherEntityName": "user",
+            "relationshipName": "coreuser",
+            "otherEntityName": "coreUser",
             "otherEntityField": "id"
         }
     ],

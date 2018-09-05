@@ -25,12 +25,11 @@ public class Bank implements Serializable {
     @Column(name = "name")
     private String name;
 
+    @Column(name = "test")
+    private String test;
+
     @Column(name = "status")
     private String status;
-
-    @OneToOne
-    @JoinColumn(unique = true)
-    private CustomerBank customer;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -67,6 +66,19 @@ public class Bank implements Serializable {
         this.name = name;
     }
 
+    public String getTest() {
+        return test;
+    }
+
+    public Bank test(String test) {
+        this.test = test;
+        return this;
+    }
+
+    public void setTest(String test) {
+        this.test = test;
+    }
+
     public String getStatus() {
         return status;
     }
@@ -78,19 +90,6 @@ public class Bank implements Serializable {
 
     public void setStatus(String status) {
         this.status = status;
-    }
-
-    public CustomerBank getCustomer() {
-        return customer;
-    }
-
-    public Bank customer(CustomerBank customerBank) {
-        this.customer = customerBank;
-        return this;
-    }
-
-    public void setCustomer(CustomerBank customerBank) {
-        this.customer = customerBank;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
@@ -120,6 +119,7 @@ public class Bank implements Serializable {
             "id=" + getId() +
             ", code='" + getCode() + "'" +
             ", name='" + getName() + "'" +
+            ", test='" + getTest() + "'" +
             ", status='" + getStatus() + "'" +
             "}";
     }

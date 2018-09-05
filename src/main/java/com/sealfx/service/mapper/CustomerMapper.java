@@ -8,17 +8,15 @@ import org.mapstruct.*;
 /**
  * Mapper for the entity Customer and its DTO CustomerDTO.
  */
-@Mapper(componentModel = "spring", uses = {CustomerBankMapper.class, UserMapper.class})
+@Mapper(componentModel = "spring", uses = {CoreUserMapper.class})
 public interface CustomerMapper extends EntityMapper<CustomerDTO, Customer> {
 
     @Mapping(source = "parent.id", target = "parentId")
-    @Mapping(source = "bank.id", target = "bankId")
-    @Mapping(source = "user.id", target = "userId")
+    @Mapping(source = "coreuser.id", target = "coreuserId")
     CustomerDTO toDto(Customer customer);
 
     @Mapping(source = "parentId", target = "parent")
-    @Mapping(source = "bankId", target = "bank")
-    @Mapping(source = "userId", target = "user")
+    @Mapping(source = "coreuserId", target = "coreuser")
     Customer toEntity(CustomerDTO customerDTO);
 
     default Customer fromId(Long id) {

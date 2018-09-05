@@ -16,9 +16,7 @@ public class CustomerDTO implements Serializable {
 
     private Long parentId;
 
-    private Long bankId;
-
-    private Long userId;
+    private Long coreuserId;
 
     public Long getId() {
         return id;
@@ -52,20 +50,12 @@ public class CustomerDTO implements Serializable {
         this.parentId = customerId;
     }
 
-    public Long getBankId() {
-        return bankId;
+    public Long getCoreuserId() {
+        return coreuserId;
     }
 
-    public void setBankId(Long customerBankId) {
-        this.bankId = customerBankId;
-    }
-
-    public Long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Long userId) {
-        this.userId = userId;
+    public void setCoreuserId(Long coreUserId) {
+        this.coreuserId = coreUserId;
     }
 
     @Override
@@ -96,8 +86,7 @@ public class CustomerDTO implements Serializable {
             ", name='" + getName() + "'" +
             ", status='" + getStatus() + "'" +
             ", parent=" + getParentId() +
-            ", bank=" + getBankId() +
-            ", user=" + getUserId() +
+            ", coreuser=" + getCoreuserId() +
             "}";
     }
 }

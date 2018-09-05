@@ -19,15 +19,11 @@
                         <a [routerLink]="['/customer-my-suffix', customer.parentId, 'view']">{{customer.parentId}}</a>
                     </div>
                 </dd>
-                <dt><span>Bank</span></dt>
+                <dt><span>Coreuser</span></dt>
                 <dd>
-                    <div *ngIf="customer.bankId">
-                        <a [routerLink]="['/customer-bank-my-suffix', customer.bankId, 'view']">{{customer.bankId}}</a>
+                    <div *ngIf="customer.coreuserId">
+                        <a [routerLink]="['/core-user-my-suffix', customer.coreuserId, 'view']">{{customer.coreuserId}}</a>
                     </div>
-                </dd>
-                <dt><span>User</span></dt>
-                <dd>
-                    {{customer.userId}}
                 </dd>
             </dl>
 

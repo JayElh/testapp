@@ -48,6 +48,9 @@ public class BankResourceIntTest {
     private static final String DEFAULT_NAME = "AAAAAAAAAA";
     private static final String UPDATED_NAME = "BBBBBBBBBB";
 
+    private static final String DEFAULT_TEST = "AAAAAAAAAA";
+    private static final String UPDATED_TEST = "BBBBBBBBBB";
+
     private static final String DEFAULT_STATUS = "AAAAAAAAAA";
     private static final String UPDATED_STATUS = "BBBBBBBBBB";
 
@@ -97,6 +100,7 @@ public class BankResourceIntTest {
         Bank bank = new Bank()
             .code(DEFAULT_CODE)
             .name(DEFAULT_NAME)
+            .test(DEFAULT_TEST)
             .status(DEFAULT_STATUS);
         return bank;
     }
@@ -124,6 +128,7 @@ public class BankResourceIntTest {
         Bank testBank = bankList.get(bankList.size() - 1);
         assertThat(testBank.getCode()).isEqualTo(DEFAULT_CODE);
         assertThat(testBank.getName()).isEqualTo(DEFAULT_NAME);
+        assertThat(testBank.getTest()).isEqualTo(DEFAULT_TEST);
         assertThat(testBank.getStatus()).isEqualTo(DEFAULT_STATUS);
     }
 
@@ -160,6 +165,7 @@ public class BankResourceIntTest {
             .andExpect(jsonPath("$.[*].id").value(hasItem(bank.getId().intValue())))
             .andExpect(jsonPath("$.[*].code").value(hasItem(DEFAULT_CODE.toString())))
             .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME.toString())))
+            .andExpect(jsonPath("$.[*].test").value(hasItem(DEFAULT_TEST.toString())))
             .andExpect(jsonPath("$.[*].status").value(hasItem(DEFAULT_STATUS.toString())));
     }
     
@@ -176,6 +182,7 @@ public class BankResourceIntTest {
             .andExpect(jsonPath("$.id").value(bank.getId().intValue()))
             .andExpect(jsonPath("$.code").value(DEFAULT_CODE.toString()))
             .andExpect(jsonPath("$.name").value(DEFAULT_NAME.toString()))
+            .andExpect(jsonPath("$.test").value(DEFAULT_TEST.toString()))
             .andExpect(jsonPath("$.status").value(DEFAULT_STATUS.toString()));
     }
 
@@ -202,6 +209,7 @@ public class BankResourceIntTest {
         updatedBank
             .code(UPDATED_CODE)
             .name(UPDATED_NAME)
+            .test(UPDATED_TEST)
             .status(UPDATED_STATUS);
         BankDTO bankDTO = bankMapper.toDto(updatedBank);
 
@@ -216,6 +224,7 @@ public class BankResourceIntTest {
         Bank testBank = bankList.get(bankList.size() - 1);
         assertThat(testBank.getCode()).isEqualTo(UPDATED_CODE);
         assertThat(testBank.getName()).isEqualTo(UPDATED_NAME);
+        assertThat(testBank.getTest()).isEqualTo(UPDATED_TEST);
         assertThat(testBank.getStatus()).isEqualTo(UPDATED_STATUS);
     }
 
