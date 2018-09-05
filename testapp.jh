@@ -1,37 +1,43 @@
-entity User {
-	name String
+entity CoreUser {
+    name String
     password String
+    test String
     status String
 }
 
 entity Bank {
-	code String
+    code String
     name String
+    test String
     status String
 }
 
 entity Customer {
-	name String
+    name String
     status String
     
 }
 
 entity CustomerBank {
-	fix String
+    fix String
     status String
 }
 
 relationship OneToOne {
-	Bank{Customer} to CustomerBank
+    CustomerBank{bank} to Bank
 }
 
 relationship OneToOne {
-	Customer{parent} to Customer
-    Customer{bank} to CustomerBank
+    CustomerBank{customer} to Customer
+}
+
+relationship OneToOne {
+    Customer{parent} to Customer
+
 }
 
 relationship ManyToOne {
-	Customer{user} to User
+    Customer{coreuser} to CoreUser
 }
 
 
