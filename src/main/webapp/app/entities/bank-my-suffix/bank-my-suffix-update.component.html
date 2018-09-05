@@ -20,18 +20,16 @@
                         [(ngModel)]="bank.name" />
                 </div>
                 <div class="form-group">
+                    <label class="form-control-label" for="field_test">Test</label>
+                    <input type="text" class="form-control" name="test" id="field_test"
+                        [(ngModel)]="bank.test" />
+                </div>
+                <div class="form-group">
                     <label class="form-control-label" for="field_status">Status</label>
                     <input type="text" class="form-control" name="status" id="field_status"
                         [(ngModel)]="bank.status" />
                 </div>
 
-                <div class="form-group">
-                    <label class="form-control-label" for="field_customer">Customer</label>
-                    <select class="form-control" id="field_customer" name="customer" [(ngModel)]="bank.customerId">
-                        <option [ngValue]="null"></option>
-                        <option [ngValue]="customerBankOption.id" *ngFor="let customerBankOption of customers; trackBy: trackCustomerBankById">{{customerBankOption.id}}</option>
-                    </select>
-                </div>
             </div>
             <div>
                 <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">

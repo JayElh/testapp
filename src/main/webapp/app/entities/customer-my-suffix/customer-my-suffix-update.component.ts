@@ -6,9 +6,8 @@ import { JhiAlertService } from 'ng-jhipster';
 
 import { ICustomerMySuffix } from 'app/shared/model/customer-my-suffix.model';
 import { CustomerMySuffixService } from './customer-my-suffix.service';
-import { ICustomerBankMySuffix } from 'app/shared/model/customer-bank-my-suffix.model';
-import { CustomerBankMySuffixService } from 'app/entities/customer-bank-my-suffix';
-import { IUser, UserService } from 'app/core';
+import { ICoreUserMySuffix } from 'app/shared/model/core-user-my-suffix.model';
+import { CoreUserMySuffixService } from 'app/entities/core-user-my-suffix';
 
 @Component({
     selector: 'jhi-customer-my-suffix-update',
@@ -20,15 +19,12 @@ export class CustomerMySuffixUpdateComponent implements OnInit {
 
     parents: ICustomerMySuffix[];
 
-    banks: ICustomerBankMySuffix[];
-
-    users: IUser[];
+    coreusers: ICoreUserMySuffix[];
 
     constructor(
         private jhiAlertService: JhiAlertService,
         private customerService: CustomerMySuffixService,
-        private customerBankService: CustomerBankMySuffixService,
-        private userService: UserService,
+        private coreUserService: CoreUserMySuffixService,
         private activatedRoute: ActivatedRoute
     ) {}
 
@@ -52,24 +48,9 @@ export class CustomerMySuffixUpdateComponent implements OnInit {
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
-        this.customerBankService.query({ filter: 'customer-is-null' }).subscribe(
-            (res: HttpResponse<ICustomerBankMySuffix[]>) => {
-                if (!this.customer.bankId) {
-                    this.banks = res.body;
-                } else {
-                    this.customerBankService.find(this.customer.bankId).subscribe(
-                        (subRes: HttpResponse<ICustomerBankMySuffix>) => {
-                            this.banks = [subRes.body].concat(res.body);
-                        },
-                        (subRes: HttpErrorResponse) => this.onError(subRes.message)
-                    );
-                }
-            },
-            (res: HttpErrorResponse) => this.onError(res.message)
-        );
-        this.userService.query().subscribe(
-            (res: HttpResponse<IUser[]>) => {
-                this.users = res.body;
+        this.coreUserService.query().subscribe(
+            (res: HttpResponse<ICoreUserMySuffix[]>) => {
+                this.coreusers = res.body;
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
@@ -109,11 +90,7 @@ export class CustomerMySuffixUpdateComponent implements OnInit {
         return item.id;
     }
 
-    trackCustomerBankById(index: number, item: ICustomerBankMySuffix) {
-        return item.id;
-    }
-
-    trackUserById(index: number, item: IUser) {
+    trackCoreUserById(index: number, item: ICoreUserMySuffix) {
         return item.id;
     }
     get customer() {

@@ -14,6 +14,10 @@ public class CustomerBankDTO implements Serializable {
 
     private String status;
 
+    private Long bankId;
+
+    private Long customerId;
+
     public Long getId() {
         return id;
     }
@@ -36,6 +40,22 @@ public class CustomerBankDTO implements Serializable {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public Long getBankId() {
+        return bankId;
+    }
+
+    public void setBankId(Long bankId) {
+        this.bankId = bankId;
+    }
+
+    public Long getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(Long customerId) {
+        this.customerId = customerId;
     }
 
     @Override
@@ -65,6 +85,8 @@ public class CustomerBankDTO implements Serializable {
             "id=" + getId() +
             ", fix='" + getFix() + "'" +
             ", status='" + getStatus() + "'" +
+            ", bank=" + getBankId() +
+            ", customer=" + getCustomerId() +
             "}";
     }
 }

@@ -17,8 +17,8 @@
             <th><span>ID</span></th>
             <th><span>Code</span></th>
             <th><span>Name</span></th>
+            <th><span>Test</span></th>
             <th><span>Status</span></th>
-            <th><span>Customer</span></th>
             <th></th>
             </tr>
             </thead>
@@ -27,12 +27,8 @@
                 <td><a [routerLink]="['/bank-my-suffix', bank.id, 'view' ]">{{bank.id}}</a></td>
                 <td>{{bank.code}}</td>
                 <td>{{bank.name}}</td>
+                <td>{{bank.test}}</td>
                 <td>{{bank.status}}</td>
-                <td>
-                    <div *ngIf="bank.customerId">
-                        <a [routerLink]="['../customer-bank-my-suffix', bank.customerId , 'view' ]" >{{bank.customerId}}</a>
-                    </div>
-                </td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"

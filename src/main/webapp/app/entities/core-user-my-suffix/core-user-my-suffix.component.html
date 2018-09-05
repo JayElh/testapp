@@ -1,0 +1,60 @@
+<div>
+    <h2 id="page-heading">
+        <span>Core Users</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-core-user-my-suffix" [routerLink]="['/core-user-my-suffix/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create new Core User
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="coreUsers">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Name</span></th>
+            <th><span>Password</span></th>
+            <th><span>Test</span></th>
+            <th><span>Status</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let coreUser of coreUsers ;trackBy: trackId">
+                <td><a [routerLink]="['/core-user-my-suffix', coreUser.id, 'view' ]">{{coreUser.id}}</a></td>
+                <td>{{coreUser.name}}</td>
+                <td>{{coreUser.password}}</td>
+                <td>{{coreUser.test}}</td>
+                <td>{{coreUser.status}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/core-user-my-suffix', coreUser.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/core-user-my-suffix', coreUser.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'core-user-my-suffix/'+ coreUser.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -10,20 +10,15 @@
             "fieldType": "String"
         },
         {
+            "fieldName": "test",
+            "fieldType": "String"
+        },
+        {
             "fieldName": "status",
             "fieldType": "String"
         }
     ],
-    "relationships": [
-        {
-            "relationshipType": "one-to-one",
-            "relationshipName": "customer",
-            "otherEntityName": "customerBank",
-            "otherEntityField": "id",
-            "ownerSide": true,
-            "otherEntityRelationshipName": "bank"
-        }
-    ],
+    "relationships": [],
     "changelogDate": "20180905052722",
     "entityTableName": "bank",
     "dto": "mapstruct",

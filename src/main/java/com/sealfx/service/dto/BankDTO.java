@@ -14,9 +14,9 @@ public class BankDTO implements Serializable {
 
     private String name;
 
-    private String status;
+    private String test;
 
-    private Long customerId;
+    private String status;
 
     public Long getId() {
         return id;
@@ -42,20 +42,20 @@ public class BankDTO implements Serializable {
         this.name = name;
     }
 
+    public String getTest() {
+        return test;
+    }
+
+    public void setTest(String test) {
+        this.test = test;
+    }
+
     public String getStatus() {
         return status;
     }
 
     public void setStatus(String status) {
         this.status = status;
-    }
-
-    public Long getCustomerId() {
-        return customerId;
-    }
-
-    public void setCustomerId(Long customerBankId) {
-        this.customerId = customerBankId;
     }
 
     @Override
@@ -85,8 +85,8 @@ public class BankDTO implements Serializable {
             "id=" + getId() +
             ", code='" + getCode() + "'" +
             ", name='" + getName() + "'" +
+            ", test='" + getTest() + "'" +
             ", status='" + getStatus() + "'" +
-            ", customer=" + getCustomerId() +
             "}";
     }
 }

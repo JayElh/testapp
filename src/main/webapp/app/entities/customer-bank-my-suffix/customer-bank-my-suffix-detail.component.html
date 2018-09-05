@@ -13,6 +13,18 @@
                 <dd>
                     <span>{{customerBank.status}}</span>
                 </dd>
+                <dt><span>Bank</span></dt>
+                <dd>
+                    <div *ngIf="customerBank.bankId">
+                        <a [routerLink]="['/bank-my-suffix', customerBank.bankId, 'view']">{{customerBank.bankId}}</a>
+                    </div>
+                </dd>
+                <dt><span>Customer</span></dt>
+                <dd>
+                    <div *ngIf="customerBank.customerId">
+                        <a [routerLink]="['/customer-my-suffix', customerBank.customerId, 'view']">{{customerBank.customerId}}</a>
+                    </div>
+                </dd>
             </dl>
 
             <button type="submit"

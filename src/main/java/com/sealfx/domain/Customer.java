@@ -30,13 +30,9 @@ public class Customer implements Serializable {
     @JoinColumn(unique = true)
     private Customer parent;
 
-    @OneToOne
-    @JoinColumn(unique = true)
-    private CustomerBank bank;
-
     @ManyToOne
     @JsonIgnoreProperties("")
-    private User user;
+    private CoreUser coreuser;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -86,30 +82,17 @@ public class Customer implements Serializable {
         this.parent = customer;
     }
 
-    public CustomerBank getBank() {
-        return bank;
+    public CoreUser getCoreuser() {
+        return coreuser;
     }
 
-    public Customer bank(CustomerBank customerBank) {
-        this.bank = customerBank;
+    public Customer coreuser(CoreUser coreUser) {
+        this.coreuser = coreUser;
         return this;
     }
 
-    public void setBank(CustomerBank customerBank) {
-        this.bank = customerBank;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public Customer user(User user) {
-        this.user = user;
-        return this;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
+    public void setCoreuser(CoreUser coreUser) {
+        this.coreuser = coreUser;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

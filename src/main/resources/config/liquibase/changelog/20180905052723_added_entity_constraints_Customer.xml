@@ -14,17 +14,11 @@
                                  referencedColumnNames="id"
                                  referencedTableName="customer"/>
 
-        <addForeignKeyConstraint baseColumnNames="bank_id"
+        <addForeignKeyConstraint baseColumnNames="coreuser_id"
                                  baseTableName="customer"
-                                 constraintName="fk_customer_bank_id"
+                                 constraintName="fk_customer_coreuser_id"
                                  referencedColumnNames="id"
-                                 referencedTableName="customer_bank"/>
-
-        <addForeignKeyConstraint baseColumnNames="user_id"
-                                 baseTableName="customer"
-                                 constraintName="fk_customer_user_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="jhi_user"/>
+                                 referencedTableName="core_user"/>
 
     </changeSet>
 </databaseChangeLog>
