@@ -1,0 +1,49 @@
+entity User {
+	name String
+    password String
+    status String
+}
+
+entity Bank {
+	code String
+    name String
+    status String
+}
+
+entity Customer {
+	name String
+    status String
+    
+}
+
+entity Customer_Bank {
+	fix String
+    status String
+}
+
+relationship OneToOne {
+	Bank{Customer} to Customer_Bank
+}
+
+relationship OneToOne {
+	Customer{parent} to Customer
+    Customer{bank} to Customer_Bank
+}
+
+relationship ManyToOne {
+	Customer{user} to User
+}
+
+
+
+// Set pagination options
+paginate JobHistory, Employee with infinite-scroll
+paginate Job with pagination
+
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl //except Employee, Job
+// Set an angular suffix
+angularSuffix * with mySuffix
+
